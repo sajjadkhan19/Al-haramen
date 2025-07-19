@@ -1,0 +1,298 @@
+/*/* ===== Base Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+ /*===== Header ===== */
+header {
+  background: linear-gradient(to right, #FF6200, #FF9D00);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+nav a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+nav a:hover {
+  text-decoration: none;
+  font-size: 25px;
+  background: white;
+  color: #FF6200;
+  border-radius: 4px;
+ /*border:solid white; 1px;*/
+}
+
+/* ===== Banner Section ===== */
+.banner {
+  background: linear-gradient(120deg, #ff6200, #ff9f1a);
+  color: white;
+  padding: 100px 30px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+.banner h1 {
+  font-size: 44px;
+  margin-bottom: 15px;
+  animation: slideDown 1s ease-in-out;
+}
+.banner p {
+  font-size: 20px;
+  margin-bottom: 25px;
+  animation: slideUp 1s ease-in-out;
+}
+.shop-btn {
+  background: #ffffff;
+  color: #ff6200;
+  padding: 12px 25px;
+  font-weight: bold;
+  border: none;
+  text-decoration: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s, background 0.3s;
+}
+.shop-btn:hover {
+  background: #ffe3d5;
+  transform: scale(1.05);
+}
+
+/* ===== Features Section ===== */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: #fff8f0;
+  padding: 50px 20px;
+  gap: 20px;
+}
+.feature-box {
+  width: 300px;
+  background: linear-gradient(to bottom, #ffffff, #ffefcc);
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease;
+  animation: fadeInUp 0.8s ease both;
+}
+.feature-box:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+.feature-box h3 {
+  color: #ff6200;
+  margin-bottom: 10px;
+}
+
+/* ===== Products Page =====*/ 
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 40px 20px;
+}
+.product-card {
+  background: white;
+  border: solid #FF6200 ;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 420px;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+.product-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.product-card h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+.product-card p {
+  font-weight: bold;
+  font-size: 16px;
+  color: #444;
+}
+.product-card button {
+  padding: 8px 14px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.add-to-cart {
+  background-color: #28a745;
+  color: white;
+}
+.buy-now {
+  background-color: #ffc107;
+  color: black;
+}
+
+/* ===== Cart Page ===== */
+.cart-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+}
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.cart-table th, .cart-table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
+.cart-summary {
+  text-align: right;
+  margin-top: 20px;
+}
+#refresh-cart {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+ /*===== Payment Method ===== */
+.payment-method {
+  background: #fff6ed;
+  padding: 25px;
+  margin-top: 30px;
+  border-radius: 8px;
+  animation: fadeIn 1s ease;
+}
+.payment-method h2 {
+  color: #ff6200;
+}
+.payment-method h3 {
+  color: #28a745;
+  margin: 10px 0;
+}
+.payment-method form input,
+.payment-method form button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+.payment-method button {
+  background: #ff6200;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.payment-method button:hover {
+  background: #e65a00;
+}
+
+/* ===== Account Page ===== */
+.account-container {
+  max-width: 400px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.account-form input, .account-form button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+}
+.account-form button {
+  background: #ff6200;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+.form-switch {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.hidden {
+  display: none;
+}
+
+ /*===== Footer ===== */
+footer {
+  background: #343a40;
+  color: #ddd;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+.footer-content p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* ===== Toast / Message Box ===== */
+#message-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #222;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  display: none;
+  z-index: 999;
+}
+
+ /*===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideDown {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeInUp {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+

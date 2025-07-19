@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cart - AL-HARAMAIN FRESH PRODUCTS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">AL-HARAMAIN</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li> 
+        <!-- <li><a href="account.html">Account</a></li> -->
+      </ul>
+    </nav>
+  </header>
+
+  <main class="cart-container">
+    <h1>Your Cart</h1>
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <!-- <th>Delivery</th> -->
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items"></tbody>
+    </table>
+
+    <div class="cart-summary">
+      <h3 id="cart-total">Total: PKR 0</h3>
+      <button id="clear-cart">🗑️ Clear Cart</button>
+    </div>
+
+    <section class="payment-method">
+      <h2>Payment & Confirmation<hr><br></h2>
+      <p>Pay Using This Numbers<br><hr>EasyPaisa:0312-3016311<hr>Jazz Cash:0321-3016311<hr><br></p>
+      <form action="upload.php" method="POST" enctype="multipart/form-data">
+        <table>
+        <tbody id="cart-items" name="pr"></tbody>
+        </table>
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Phone:</label><br>
+        <input type="text" name="phone" placeholder="03XX-XXXXXXX" required><br><br>
+
+        <label>Address:</label><br>
+        <input type="text" name="address" placeholder="your address" required><br><br>
+
+        <label>Upload Payment Screenshot:</label><br>
+        <input type="file" name="screenshot" required><br><br>
+
+        <label>Payment Method:</label><br>
+        <input type="radio" name="method" value="easypaisa" checked> EasyPaisa
+        <input type="radio" name="method" value="jazzcash"> JazzCash<br><br>
+
+        <input type="hidden" name="cart_summary" id="cartSummary">
+        <button type="submit">Submit Order</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AL-HARAMAIN FRESH PRODUCTS. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const tbody = document.getElementById("cart-items");
+    const totalDisplay = document.getElementById("cart-total");
+    let total = 0;
+    let summary = [];
+
+    tbody.innerHTML = "";
+
+    cartItems.forEach(item => {
+      const subtotal = item.price * item.qty;
+      total += subtotal;
+      summary.push(`${item.name} (${item.qty}) - PKR ${subtotal}`);
+
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${item.name}</td>
+        <td>${item.qty}</td>
+        <td>PKR ${item.price}</td>
+        <td>PKR ${subtotal}</td>
+      `;
+      tbody.appendChild(row);
+    });
+
+    totalDisplay.textContent = `Total: PKR ${total}`;
+    document.getElementById("cartSummary").value = summary.join(", ");
+
+    document.getElementById("clear-cart").addEventListener("click", () => {
+      localStorage.removeItem("cart");
+      location.reload();
+    });
+  </script>
+</body>
+</html>
